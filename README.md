@@ -1,7 +1,7 @@
 # 8-bit-ALU-RTL-to-GDSII-Using-Cadence-Design-Suite
 <div align="center">
 
-# 🔧 8-Bit Arithmetic Logic Unit: RTL to GDSII
+
 
 </div>
 
@@ -518,10 +518,10 @@ of this software and associated documentation files...
 
 **Your Name**
 
-- 📬 Email: your.email@example.com
+- 📬 Email: divyanshtiwari435@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- 🐙 GitHub: [@yourusername](https://github.com/yourusername)
-- 🌐 Portfolio: [yourwebsite.com](https://yourwebsite.com)
+- 🐙 GitHub: [diyansh404-sudo](https://github.com/yourusername)
+  
 
 ---
 
@@ -540,10 +540,10 @@ of this software and associated documentation files...
 
 ## 👨‍💻 Developer
 
-**Your Name**  
-*Roll Number: 523EC0XXX*
+**Divyansh Tiwari**  
+*Roll Number: 123EC0039*
 
-**Integrated B.Tech + M.Tech in Electronics and Communication Engineering**
+** B.Tech in Electronics and Communication Engineering**
 
 **Indian Institute of Information Technology Design and Manufacturing, Kurnool**
 
@@ -559,6 +559,6 @@ of this software and associated documentation files...
 
 *Designed with 💙 for Digital Design Enthusiasts*
 
-© 2025 Your Name. All Rights Reserved.
+© 2025 Divyansh Tiwari. All Rights Reserved.
 
 </div>
