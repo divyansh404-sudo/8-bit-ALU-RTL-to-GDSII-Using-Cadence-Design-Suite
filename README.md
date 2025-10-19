@@ -386,74 +386,7 @@ The ALU architecture is a sequential design with synchronized operations and fla
 
 ---
 
-## 📂 Repository Structure
 
-```
-8-bit-alu-asic/
-├── rtl/
-│   ├── alu_8bit.v              # Top-level ALU module
-│   └── testbench.v             # Verification testbench
-├── simulation/
-│   ├── run_sim.tcl             # Vivado simulation script
-│   └── waveforms/
-│       └── simulation_waveforms.png
-├── synthesis/
-│   ├── synthesis_90nm.tcl      # 90nm synthesis script
-│   ├── synthesis_180nm.tcl     # 180nm synthesis script
-│   └── constraints.sdc         # Timing constraints
-├── physical_design/
-│   ├── 90nm/
-│   │   ├── floorplan.tcl       # 90nm floorplanning
-│   │   ├── placement.tcl       # 90nm placement
-│   │   └── routing.tcl         # 90nm routing
-│   └── 180nm/
-│       ├── floorplan.tcl       # 180nm floorplanning
-│       ├── placement.tcl       # 180nm placement
-│       └── routing.tcl         # 180nm routing
-├── verification/
-│   ├── drc_90nm.tcl            # 90nm DRC checking
-│   ├── drc_180nm.tcl           # 180nm DRC checking
-│   ├── lvs_90nm.tcl            # 90nm LVS verification
-│   └── lvs_180nm.tcl           # 180nm LVS verification
-├── reports/
-│   ├── 90nm/
-│   │   ├── synthesis.rpt       # Synthesis report
-│   │   ├── timing.rpt          # Timing analysis
-│   │   ├── power.rpt           # Power report
-│   │   ├── drc.rpt             # DRC results
-│   │   └── lvs.rpt             # LVS results
-│   └── 180nm/
-│       ├── synthesis.rpt       # Synthesis report
-│       ├── timing.rpt          # Timing analysis
-│       ├── power.rpt           # Power report
-│       ├── drc.rpt             # DRC results
-│       └── lvs.rpt             # LVS results
-├── images/
-│   ├── alu_block_diagram.svg   # Functional block diagram
-│   ├── simulation_waveforms.png
-│   ├── 90nm/
-│   │   ├── schematic_90nm.png
-│   │   ├── no_layout_90nm.png
-│   │   ├── layout_90nm.png
-│   │   ├── layout_90nm_3d_top.png
-│   │   ├── layout_90nm_3d_bottom.png
-│   │   ├── drc_90nm.png
-│   │   └── connectivity_90nm.png
-│   └── 180nm/
-│       ├── schematic_180nm.png
-│       ├── no_layout_180nm.png
-│       ├── layout_180nm.png
-│       ├── layout_180nm_3d_top.png
-│       ├── layout_180nm_3d_bottom.png
-│       ├── drc_180nm.png
-│       └── connectivity_180nm.png
-└── docs/
-    ├── design_specification.pdf
-    ├── synthesis_notes.md
-    └── verification_plan.md
-```
-
----
 
 ## 🔍 Technical Details
 
@@ -516,7 +449,7 @@ The ALU architecture is a sequential design with synchronized operations and fla
 - **Instructor**: Dr. P. Ranga Babu
 - **Department**: Electronics and Communication Engineering
 - **Institution**: IIITDM Kurnool
-- **Semester**: Autumn 2025
+- **Semester**: ODD 2025
 
 ### Learning Objectives Achieved
 
