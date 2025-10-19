@@ -269,7 +269,7 @@ The ALU architecture is a sequential design with synchronized operations and fla
 ### 180nm Technology Implementation
 
 #### 1. Gate-Level Schematic (180nm)
-![180nm Schematic]("C:\Users\divya\OneDrive\Desktop\8-bit ALU\dt\alu\Screenshot from 2025-10-18 12-10-50.png")
+![180nm Schematic](./images/schematic_180nm.png)
 *Post-synthesis gate-level schematic showing cell instances and interconnections*
 
 #### 2. No Layout View (180nm)
