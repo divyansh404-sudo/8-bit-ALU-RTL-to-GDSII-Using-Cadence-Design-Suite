@@ -259,12 +259,6 @@ The ALU architecture is a sequential design with synchronized operations and fla
 
 ## 🖼️ Design Visualizations
 
-### RTL Simulation Results
-
-![RTL Simulation](./images/simulation_waveforms.png)
-*Comprehensive waveform analysis showing all ALU operations and flag generation*
-
----
 
 ### 180nm Technology Implementation
 
