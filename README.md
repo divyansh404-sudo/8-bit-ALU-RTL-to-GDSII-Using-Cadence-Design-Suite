@@ -626,7 +626,7 @@ of this software and associated documentation files...
 
 ## 👨‍💻 Developer
 
-**Your Name**  
+**Divyansh Tiwari**  
 *Roll Number: 123EC0039*
 
 ** B.Tech in Electronics and Communication Engineering**
