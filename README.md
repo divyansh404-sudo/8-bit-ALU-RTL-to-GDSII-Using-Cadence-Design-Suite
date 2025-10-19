@@ -37,13 +37,6 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
 
 ## 🎨 Design
 
-### Functional Block Diagram
-
-The ALU architecture is a sequential design with synchronized operations and flag generation:
-
-![ALU Functional Block Diagram](./images/alu_block_diagram.svg)
-
-*Complete functional block diagram showing data flow, control signals, and sequential operation*
 
 ### Architectural Overview
 
