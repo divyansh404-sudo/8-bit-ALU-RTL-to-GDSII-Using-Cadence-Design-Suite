@@ -1,7 +1,7 @@
 # 8-bit-ALU-RTL-to-GDSII-Using-Cadence-Design-Suite
 <div align="center">
 
-
+# 🔧 8-Bit Arithmetic Logic Unit: RTL to GDSII
 
 </div>
 
@@ -259,41 +259,91 @@ The ALU architecture is a sequential design with synchronized operations and fla
 
 ## 🖼️ Design Visualizations
 
-### Simulation Results
+### RTL Simulation Results
 
 ![RTL Simulation](./images/simulation_waveforms.png)
-*Comprehensive waveform analysis showing all ALU operations*
+*Comprehensive waveform analysis showing all ALU operations and flag generation*
 
-### Synthesized Netlists
+---
 
-<div align="center">
+### 180nm Technology Implementation
 
-| 180nm Gate-Level Schematic | 90nm Gate-Level Schematic |
-|:--------------------------:|:-------------------------:|
-| ![180nm Netlist](./images/schematic_180nm.png) | ![90nm Netlist](./images/schematic_90nm.png) |
+#### 1. Gate-Level Schematic (180nm)
+![180nm Schematic](./images/schematic_180nm.png)
+*Post-synthesis gate-level schematic showing cell instances and interconnections*
 
-*Post-synthesis schematics for both technology nodes*
+#### 2. No Layout View (180nm)
+![180nm No Layout](./images/no_layout_180nm.png)
+*Initial floorplan without placement and routing*
 
-</div>
+#### 3. Complete Layout (180nm)
+![180nm Layout](./images/layout_180nm.png)
+*Finished layout with all metal layers, placement, and routing complete*
 
-### Physical Layouts
+#### 4. 3D Layout - Top View (180nm)
+![180nm 3D Top](./images/layout_180nm_3d_top.png)
+*Three-dimensional visualization of the layout from top perspective showing metal layer stack*
 
-#### 180nm CMOS Layout
+#### 5. 3D Layout - Bottom View (180nm)
+![180nm 3D Bottom](./images/layout_180nm_3d_bottom.png)
+*Three-dimensional visualization from bottom perspective showing substrate and lower metal layers*
 
-<div align="center">
+#### 6. DRC Verification (180nm)
+![180nm DRC](./images/drc_180nm.png)
+*Design Rule Check results - Zero violations confirmed*
 
-| 2D Layout View | 3D Rendered View |
-|:--------------:|:----------------:|
-| ![180nm 2D](./images/layout_180nm_2d.png) | ![180nm 3D](./images/layout_180nm_3d.png) |
+#### 7. Connectivity Check (180nm)
+![180nm Connectivity](./images/connectivity_180nm.png)
+*LVS (Layout vs Schematic) connectivity verification - All nets matched*
 
-*Completed place-and-route with metal layers visualization*
+---
 
-</div>
+### 90nm Technology Implementation
 
-#### 90nm CMOS Layout
+#### 1. Gate-Level Schematic (90nm)
+![90nm Schematic](./images/schematic_90nm.png)
+*Post-synthesis gate-level schematic with optimized cell mapping*
 
+#### 2. No Layout View (90nm)
+![90nm No Layout](./images/no_layout_90nm.png)
+*Initial floorplan configuration before automated placement*
+
+#### 3. Complete Layout (90nm)
 ![90nm Layout](./images/layout_90nm.png)
-*High-density layout showing advanced node optimization*
+*Final layout with high-density cell placement and multi-layer routing*
+
+#### 4. 3D Layout - Top View (90nm)
+![90nm 3D Top](./images/layout_90nm_3d_top.png)
+*Three-dimensional top view showing advanced node metal stack and via structures*
+
+#### 5. 3D Layout - Bottom View (90nm)
+![90nm 3D Bottom](./images/layout_90nm_3d_bottom.png)
+*Three-dimensional bottom view revealing substrate contacts and lower interconnect*
+
+#### 6. DRC Verification (90nm)
+![90nm DRC](./images/drc_90nm.png)
+*Design Rule Check report - Clean with zero DRC violations*
+
+#### 7. Connectivity Check (90nm)
+![90nm Connectivity](./images/connectivity_90nm.png)
+*LVS connectivity analysis - Netlist-to-layout matching verified*
+
+---
+
+### Technology Comparison Views
+
+<div align="center">
+
+| Aspect | 180nm Technology | 90nm Technology |
+|:------:|:----------------:|:---------------:|
+| **Schematic Complexity** | 193 cells | 217 cells |
+| **Layout Density** | Lower density | Higher density |
+| **Metal Layers** | Fewer layers | More layers |
+| **Cell Size** | Larger cells | Smaller cells |
+| **Routing Congestion** | Less congested | More congested |
+| **Via Count** | Lower | Higher |
+
+</div>
 
 ---
 
@@ -348,29 +398,65 @@ The ALU architecture is a sequential design with synchronized operations and fla
 8-bit-alu-asic/
 ├── rtl/
 │   ├── alu_8bit.v              # Top-level ALU module
-│   ├── arithmetic_unit.v       # Arithmetic operations
-│   └── logic_unit.v            # Logic operations
-├── testbench/
-│   ├── alu_tb.v                # Comprehensive testbench
-│   └── test_vectors.txt        # Input test patterns
+│   └── testbench.v             # Verification testbench
+├── simulation/
+│   ├── run_sim.tcl             # Vivado simulation script
+│   └── waveforms/
+│       └── simulation_waveforms.png
 ├── synthesis/
 │   ├── synthesis_90nm.tcl      # 90nm synthesis script
 │   ├── synthesis_180nm.tcl     # 180nm synthesis script
 │   └── constraints.sdc         # Timing constraints
 ├── physical_design/
-│   ├── floorplan.tcl           # Floorplanning script
-│   ├── placement.tcl           # Placement configuration
-│   └── routing.tcl             # Routing settings
+│   ├── 90nm/
+│   │   ├── floorplan.tcl       # 90nm floorplanning
+│   │   ├── placement.tcl       # 90nm placement
+│   │   └── routing.tcl         # 90nm routing
+│   └── 180nm/
+│       ├── floorplan.tcl       # 180nm floorplanning
+│       ├── placement.tcl       # 180nm placement
+│       └── routing.tcl         # 180nm routing
 ├── verification/
-│   ├── drc_check.tcl           # Design rule checking
-│   └── lvs_check.tcl           # Layout vs schematic
+│   ├── drc_90nm.tcl            # 90nm DRC checking
+│   ├── drc_180nm.tcl           # 180nm DRC checking
+│   ├── lvs_90nm.tcl            # 90nm LVS verification
+│   └── lvs_180nm.tcl           # 180nm LVS verification
 ├── reports/
-│   ├── synthesis_90nm.rpt      # 90nm synthesis report
-│   ├── synthesis_180nm.rpt     # 180nm synthesis report
-│   ├── timing_90nm.rpt         # 90nm timing analysis
-│   └── power_90nm.rpt          # 90nm power report
-├── images/                     # Documentation images
-└── docs/                       # Additional documentation
+│   ├── 90nm/
+│   │   ├── synthesis.rpt       # Synthesis report
+│   │   ├── timing.rpt          # Timing analysis
+│   │   ├── power.rpt           # Power report
+│   │   ├── drc.rpt             # DRC results
+│   │   └── lvs.rpt             # LVS results
+│   └── 180nm/
+│       ├── synthesis.rpt       # Synthesis report
+│       ├── timing.rpt          # Timing analysis
+│       ├── power.rpt           # Power report
+│       ├── drc.rpt             # DRC results
+│       └── lvs.rpt             # LVS results
+├── images/
+│   ├── alu_block_diagram.svg   # Functional block diagram
+│   ├── simulation_waveforms.png
+│   ├── 90nm/
+│   │   ├── schematic_90nm.png
+│   │   ├── no_layout_90nm.png
+│   │   ├── layout_90nm.png
+│   │   ├── layout_90nm_3d_top.png
+│   │   ├── layout_90nm_3d_bottom.png
+│   │   ├── drc_90nm.png
+│   │   └── connectivity_90nm.png
+│   └── 180nm/
+│       ├── schematic_180nm.png
+│       ├── no_layout_180nm.png
+│       ├── layout_180nm.png
+│       ├── layout_180nm_3d_top.png
+│       ├── layout_180nm_3d_bottom.png
+│       ├── drc_180nm.png
+│       └── connectivity_180nm.png
+└── docs/
+    ├── design_specification.pdf
+    ├── synthesis_notes.md
+    └── verification_plan.md
 ```
 
 ---
@@ -520,8 +606,8 @@ of this software and associated documentation files...
 
 - 📬 Email: divyanshtiwari435@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- 🐙 GitHub: [diyansh404-sudo](https://github.com/yourusername)
-  
+- 🐙 GitHub: [divyansh404-sudo](https://github.com/yourusername)
+
 
 ---
 
@@ -540,7 +626,7 @@ of this software and associated documentation files...
 
 ## 👨‍💻 Developer
 
-**Divyansh Tiwari**  
+**Your Name**  
 *Roll Number: 123EC0039*
 
 ** B.Tech in Electronics and Communication Engineering**
