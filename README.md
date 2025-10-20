@@ -525,7 +525,7 @@ of this software and associated documentation files...
 **Your Name**
 
 - 📬 Email: divyanshtiwari435@gmail.com
-- 💼 LinkedIn: [linkedin.com/in/yourprofile](https://www.linkedin.com/in/divyansh-tiwari-18064728a)
+- 💼 LinkedIn: [linkedin.com/in/Divyansh Tiwari](https://www.linkedin.com/in/divyansh-tiwari-18064728a)
 - 🐙 GitHub: [divyansh404-sudo](https://github.com/yourusername)
 
 
