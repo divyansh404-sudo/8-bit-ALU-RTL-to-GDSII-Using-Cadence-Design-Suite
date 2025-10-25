@@ -288,7 +288,7 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
 ### 90nm Technology Implementation
 
 #### 1. Gate-Level Schematic (90nm)
-![90nm Schematic](./images/schematic_90nm.png)
+![90nm Schematic](./images/schematic_90nm.jpg)
 *Post-synthesis gate-level schematic with optimized cell mapping*
 
 #### 2. No Layout View (90nm)
