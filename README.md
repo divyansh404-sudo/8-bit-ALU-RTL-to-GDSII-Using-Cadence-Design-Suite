@@ -553,15 +553,7 @@ of this software and associated documentation files...
 
 **Indian Institute of Information Technology Design and Manufacturing, Kurnool**
 
----
 
-### ⭐ If you find this project useful, please consider giving it a star!
-
-[![GitHub Stars](https://img.shields.io/github/stars/yourusername/8-bit-alu-asic?style=social)](https://github.com/yourusername/8-bit-alu-asic/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/yourusername/8-bit-alu-asic?style=social)](https://github.com/yourusername/8-bit-alu-asic/network/members)
-[![GitHub Issues](https://img.shields.io/github/issues/yourusername/8-bit-alu-asic)](https://github.com/yourusername/8-bit-alu-asic/issues)
-
----
 
 *Designed with 💙 for Digital VLSI Design Enthusiasts*
 
