@@ -553,10 +553,6 @@ of this software and associated documentation files...
 
 **Indian Institute of Information Technology Design and Manufacturing, Kurnool**
 
-
-
-*Designed with 💙 for Digital VLSI Design Enthusiasts*
-
 © 2025 Divyansh Tiwari. All Rights Reserved.
 
 </div>
