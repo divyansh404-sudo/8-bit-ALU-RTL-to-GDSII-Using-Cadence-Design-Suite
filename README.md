@@ -522,7 +522,7 @@ of this software and associated documentation files...
 
 ## 📧 Contact Information
 
-**Your Name**
+**Divyansh Tiwari**
 
 - 📬 Email: divyanshtiwari435@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/Divyansh Tiwari](https://www.linkedin.com/in/divyansh-tiwari-18064728a)
