@@ -39,8 +39,6 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
 
 
 ### Architectural Overview
-
-```
 ┌─────────────────────────────────────────────────────────┐
 │                   INPUT INTERFACE                        │
 │      A[7:0]  B[7:0]  op_code[2:0]  clk  en              │
@@ -52,17 +50,17 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
               │         └─────────────┬────────────┘
               │                       │
     ┌─────────▼─────────┐   ┌────────▼────────┐
-    │  ALU OPERATIONS   │   │   MULTIPLEXER    │
-    │   UNIT (9-bit)    │   │  (opcode select) │
+    │  ALU OPERATIONS   │   │   CASE SELECTOR  │
+    │   UNIT (9-bit)    │   │  (opcode decode) │
     │                   │   │                  │
     │  000: ADD         │   │  Routes selected │
-    │  001: ADC ←───┐   │   │  operation to    │
-    │  010: SUB     │   │   │  output          │
-    │  011: INC     │   │   │                  │
-    │  100: DEC     │   │   │                  │
-    │  101: CMP     │   │   │                  │
-    │  110: SHL     │   │   │                  │
-    │  111: SHR     │   │   │                  │
+    │  001: SUB         │   │  operation to    │
+    │  010: AND         │   │  temp_result     │
+    │  011: OR          │   │                  │
+    │  100: INC         │   │                  │
+    │  101: DEC         │   │                  │
+    │  110: NOT         │   │                  │
+    │  111: DEFAULT     │   │                  │
     └─────────┬─────────┘   └────────┬─────────┘
               │                      │
               └──────────┬───────────┘
@@ -76,6 +74,8 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
               ┌──────────▼──────────┐
               │   FLAG GENERATION   │
               │  • Carry (bit 8)    │
+              │    - Arithmetic ops │
+              │    - Zero for logic │
               │  • Zero (result==0) │
               └──────────┬──────────┘
                          │
@@ -85,27 +85,22 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
               │  flag_carry         │
               │  flag_zero          │
               └─────────────────────┘
-                         │
-              Carry Feedback Loop ──┘
-              (for ADC operation)
-```
 
 ### Operation Table
+
 
 | Opcode | Operation | Function | Description |
 |:------:|:---------:|:--------:|:------------|
 | 000 | ADD | {carry, result} = A + B | Addition with carry output |
-| 001 | ADC | {carry, result} = A + B + carry | Addition with carry input (for multi-precision) |
-| 010 | SUB | {carry, result} = A - B | Subtraction with borrow |
-| 011 | INC | {carry, result} = A + 1 | Increment A by 1 |
-| 100 | DEC | {carry, result} = A - 1 | Decrement A by 1 |
-| 101 | CMP | result = comparison | Compare: 1 if A<B, 2 if A==B, 4 if A>B |
-| 110 | SHL | result = A << 1 | Shift left logical by 1 bit |
-| 111 | SHR | result = A >> 1 | Shift right logical by 1 bit |
+| 001 | SUB | {carry, result} = A - B | Subtraction with borrow flag |
+| 010 | AND | result = A & B | Bitwise AND operation |
+| 011 | OR | result = A \| B | Bitwise OR operation |
+| 100 | INC | {carry, result} = A + 1 | Increment A by 1 |
+| 101 | DEC | {carry, result} = A - 1 | Decrement A by 1 |
+| 110 | NOT | result = ~A | Bitwise NOT operation (complement A) |
+| 111 | - | result = 0 | Default/unused operation |
 
-**Note:** All operations produce a 9-bit result {carry_bit, result[7:0]} which is then split into the 8-bit result output and carry flag.
-
----
+**Note:** All operations produce a 9-bit internal result {carry_bit, result[7:0]} which is then split into the 8-bit result output and carry flag. For logical operations (AND, OR, NOT), the carry flag is always 0.
 
 ## 📈 Performance
 
@@ -388,18 +383,20 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
 | Parameter | Specification |
 |-----------|--------------|
 | Data Width | 8 bits (parameterized N) |
-| Operations | 8 (5 arithmetic + 1 comparison + 2 shift) |
+| Operations | 7 (3 arithmetic + 3 logical + 1 unary) |
 | Control Inputs | 3-bit opcode + enable + clock |
 | Flag Outputs | Carry, Zero |
-| Architecture | Sequential with MUX-based operation selection |
+| Architecture | Sequential with case-based operation selection |
 | Clock Frequency (90nm) | ~100 MHz |
 | Clock Frequency (180nm) | ~50 MHz |
-| Internal Data Path | 9-bit (includes carry) |
-| Comparison Output | Encoded: 1 (A<B), 2 (A==B), 4 (A>B) |
+| Internal Data Path | 9-bit (includes carry for arithmetic ops) |
+| Arithmetic Operations | ADD, SUB, INC, DEC |
+| Logical Operations | AND, OR, NOT |
+
+---
 
 ### Design Characteristics
 
-```
 ┌──────────────────────────────────────────┐
 │         ALU CHARACTERISTICS              │
 ├──────────────────────────────────────────┤
@@ -409,18 +406,18 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
 │  Status Flags         : 2 (carry, zero)  │
 │  Clock Signal         : 1 (pos-edge)     │
 │  Enable Signal        : 1 (active high)  │
-│  Arithmetic Ops       : 5 (ADD/ADC/SUB   │
-│                           /INC/DEC)      │
-│  Comparison Ops       : 1 (CMP)          │
-│  Shift Ops            : 2 (SHL/SHR)      │
+│  Arithmetic Ops       : 4 (ADD/SUB/      │
+│                           INC/DEC)       │
+│  Logical Ops          : 3 (AND/OR/NOT)   │
 │  Design Style         : Sequential       │
 │  Internal Width       : 9-bit (with cry) │
 │  Critical Path        : Flag generation  │
-│  Register Count       : 10 flip-flops    │
-│  Combinational Gates  : 207 (90nm)       │
-│  Carry Feedback       : Yes (for ADC)    │
+│  Carry Behavior       : Set for arith    │
+│                         Clear for logic  │
+│  Zero Flag Logic      : Auto-computed    │
+│  Default Operation    : Output zeros     │
+│  Borrow Flag          : SUB uses carry   │
 └──────────────────────────────────────────┘
-```
 
 ### RTL Design Features
 
