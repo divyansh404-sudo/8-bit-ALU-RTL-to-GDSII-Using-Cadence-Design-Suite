@@ -38,7 +38,9 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
 ## 🎨 Design
 
 
-### Architectural Overview
+## Architectural Overview (Updated)
+
+```
 ┌─────────────────────────────────────────────────────────┐
 │                   INPUT INTERFACE                        │
 │      A[7:0]  B[7:0]  op_code[2:0]  clk  en              │
@@ -85,6 +87,9 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
               │  flag_carry         │
               │  flag_zero          │
               └─────────────────────┘
+```
+
+---
 
 ### Operation Table
 
@@ -395,8 +400,9 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
 
 ---
 
-### Design Characteristics
+## Design Characteristics
 
+```
 ┌──────────────────────────────────────────┐
 │         ALU CHARACTERISTICS              │
 ├──────────────────────────────────────────┤
@@ -418,6 +424,10 @@ This repository showcases a **comprehensive RTL-to-GDSII implementation** of an 
 │  Default Operation    : Output zeros     │
 │  Borrow Flag          : SUB uses carry   │
 └──────────────────────────────────────────┘
+```
+
+---
+
 
 ### RTL Design Features
 
