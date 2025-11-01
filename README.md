@@ -506,19 +506,6 @@ We welcome contributions to enhance this project! Here's how you can help:
 - Documentation improvements
 - Bug fixes and code cleanup
 
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for complete details.
-
-```
-MIT License - Copyright (c) 2025
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files...
-```
-
----
 
 ## 📧 Contact Information
 
@@ -526,7 +513,7 @@ of this software and associated documentation files...
 
 - 📬 Email: divyanshtiwari435@gmail.com
 - 💼 LinkedIn: [linkedin.com/in/Divyansh Tiwari](https://www.linkedin.com/in/divyansh-tiwari-18064728a)
-- 🐙 GitHub: [divyansh404-sudo](https://github.com/yourusername)
+- 🐙 GitHub: [divyansh404-sudo](https://github.com/divyansh404-sudo)
 
 
 ---
